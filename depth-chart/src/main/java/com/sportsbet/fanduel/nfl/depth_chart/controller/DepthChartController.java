@@ -101,7 +101,7 @@ public class DepthChartController {
                     An empty list should be returned if the given player has no Backups.
                     An empty list should be returned if the given player is not listed in the depth chart at that position.
                     """,
-            summary = "Removes a player from a position",
+            summary = "Gets backups for player",
             responses = {
                     @ApiResponse(
                             description = "Success",
@@ -132,7 +132,7 @@ public class DepthChartController {
             description = """
                     Print out the full depth chart with every position on the team and every player within the Depth Chart.
                     """,
-            summary = "Removes a player from a position",
+            summary = "Gets the full depth chart",
             responses = {
                     @ApiResponse(
                             description = "Success",
