@@ -78,7 +78,7 @@ public class DepthChartServiceImpl implements DepthChartService {
                 playerChartPositions.add(toAdd);
             }
 
-            modifiedDepthChart = new DepthChart(depthChart.getId(), depthChart.getPosition(), depthChart.getCategory(), playerChartPositions);
+            modifiedDepthChart = new DepthChart(depthChart.getId(), depthChart.getCategory(), depthChart.getPosition(), playerChartPositions);
             DepthChart saved = depthChartRepository.save(modifiedDepthChart);
 
             return depthChartMapper.transformDepthChartEntryToResponse.apply(saved);
