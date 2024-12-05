@@ -78,13 +78,23 @@ public class DepthChartControllerTest {
     @Test
     public void testAddPlayerToDepthChart() throws Exception {
         mockMvc
-                .perform(post("/nfl/depth-chart/LWR/1")
+                .perform(post("/nfl/depth-chart/LWR")
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .queryParam("depth", "1")
+                        .content("{ \"number\" : 234, \"firstName\" : \"Scott\", \"lastName\" : \"Miller\" }"))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andExpect(content().string(containsString("{\"data\":{\"OFFENSE\":{\"LWR\":[{\"number\":234,\"firstName\":\"Scott\",\"lastName\":\"Miller\",\"depth\":1}]}}}")));
+
+        mockMvc
+                .perform(post("/nfl/depth-chart/RWR")
                         .contentType(APPLICATION_JSON_UTF8)
                         .accept(MediaType.APPLICATION_JSON)
                         .content("{ \"number\" : 234, \"firstName\" : \"Scott\", \"lastName\" : \"Miller\" }"))
                 .andDo(print())
                 .andExpect(status().isCreated())
-                .andExpect(content().string(containsString("{\"data\":{\"LWR\":{\"OFFENSE\":[{\"number\":234,\"firstName\":\"Scott\",\"lastName\":\"Miller\",\"depth\":1}]}}}")));
+                .andExpect(content().string(containsString("{\"data\":{\"OFFENSE\":{\"RWR\":[{\"number\":234,\"firstName\":\"Scott\",\"lastName\":\"Miller\",\"depth\":1}]}}}")));
     }
 
     @Test
