@@ -9,7 +9,7 @@ This is a spring boot application that can be started from the console.
 
 # About the app
 * This application uses an on memory database.
-* Some test data ges populated at application start up. See InitData.java class.
+* Some test data gets populated at application start up. See InitData.java class.
 * Integration tests use the same database.
 * Unit tests are written.
 
