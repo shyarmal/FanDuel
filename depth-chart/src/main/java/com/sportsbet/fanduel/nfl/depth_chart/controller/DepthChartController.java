@@ -52,11 +52,11 @@ public class DepthChartController {
             }
     )
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{position}/{depth}")
+    @PostMapping("/{position}")
     public ResponseEntity<ResponseWrapper<Map<String, Map<String, List<PlayerChartDepthResponse>>>>> addPlayerToDepthChart (
             @PathVariable("position") String position,
             @RequestBody @Valid NFLPlayer nflPlayer,
-            @PathVariable("depth") Optional<Integer> depth
+            @RequestParam("depth") Optional<Integer> depth
     ) throws NFLDepthChartException {
 
         ResponseWrapper<Map<String, Map<String, List<PlayerChartDepthResponse>>>> response = depthChartService.addToChart(position, nflPlayer, depth);
