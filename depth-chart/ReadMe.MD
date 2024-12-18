@@ -1,4 +1,4 @@
-# Fanduel Coding Challenge
+# About
 
 This is a spring boot application that can be started from the console.
 * Go to the applications home directory (cd ~/IdeaProjects/depth-chart)
